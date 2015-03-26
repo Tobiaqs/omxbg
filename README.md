@@ -3,7 +3,10 @@ Lil' script that helps you run OMXPlayer in the background. It's meant to work w
 
 ### Installation
 ```
-$ sudo bash -c '$(P="/usr/local/bin/omxbg"; wget -O "$P" https://raw.githubusercontent.com/Tobiaqs/omxbg/master/omxbg && chmod +x "$P")'
+# apt-get update && apt-get install -y omxplayer
+```
+```
+# bash -c '$(P="/usr/local/bin/omxbg"; wget -O "$P" https://raw.githubusercontent.com/Tobiaqs/omxbg/master/omxbg && chmod +x "$P")'
 ```
 
 ### Usage
