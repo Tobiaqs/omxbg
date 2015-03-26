@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ ! -p /tmp/omxfifo ]; then
+	mkfifo /tmp/omxfifo
+fi
+chmod 777 /tmp/omxfifo
+
+if [ "$1" = "--wait" ]; then
+	omxplayer --no-keys "${@:2}" > /dev/null 2>&1 < /tmp/omxfifo &
+else
+	omxplayer --no-keys "$@" > /dev/null 2>&1 < /tmp/omxfifo &
+fi
+OMXPID=$!
+echo -n $!
+echo -n . > /tmp/omxfifo
+rm /tmp/omxfifo
+
+if [ "$1" = "--wait" ]; then
+	trap "pkill -P $OMXPID" SIGINT SIGTERM
+	sleep infinity
+fi
