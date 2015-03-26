@@ -11,9 +11,20 @@ Lil' script that helps you run OMXPlayer in the background. It's meant to work w
 
 ### Usage
 ```
+$ omxbg [--wait] [--omxplayer-option] file
+
+--wait: Don't go into background.
+```
+
+### Examples
+```
 # No options
 $ omxbg http://pub2.di.fm/di_trance
 345
+```
+```
+# Don't go into background
+$ omxbg --wait http://pub2.di.fm/di_trance
 ```
 ```
 # HW audio decoding, output to HDMI
@@ -28,4 +39,4 @@ $ pkill -P 345
 Tip: In order for OMX to work at all, make sure your user is member of the audio group.
 
 ```
-$ sudo usermod -a -G audio tobias
+# usermod -a -G audio tobias
